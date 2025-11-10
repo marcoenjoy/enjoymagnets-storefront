@@ -6,8 +6,9 @@ export default function HomePage() {
     <Container>
       <Header />
       <div className='py-10'>
-        Home pronta ✅ — Next.js 14 + Tailwind
+        OK ✅ — Next.js funziona su 3001 (sanity check)
       </div>
     </Container>
   )
 }
+
