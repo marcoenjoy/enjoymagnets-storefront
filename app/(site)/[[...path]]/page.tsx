@@ -15,6 +15,13 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: { path?: string[] } }) {
   const path = '/' + (params.path?.join('/') ?? '')
   const snapshot = await client.getPageSnapshot(path, { siteVersion: getSiteVersion() })
-  if (snapshot == null) return notFound()
-  return <MakeswiftPage snapshot={snapshot} />
+ if (snapshot == null) {
+  return (
+    <div style={{ padding: 20, fontFamily: 'system-ui' }}>
+      <h1>Site connected</h1>
+      <p>In attesa di Publish da Makeswift per questo path “{path || '/'}”.</p>
+    </div>
+  )
+}
+return <MakeswiftPage snapshot={snapshot} />
 }
