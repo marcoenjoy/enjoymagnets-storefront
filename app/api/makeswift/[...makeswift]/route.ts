@@ -1,10 +1,6 @@
-import { MakeswiftApiHandler } from '@makeswift/runtime/next/server';
-import { strict } from 'assert';
-import { runtime } from '../../../makeswift/runtime';
-import '../../../makeswift/components';
+import { MakeswiftApiHandler } from '@makeswift/runtime/next/server'
+import { runtime } from '../../../makeswift/runtime'
+import '../../../makeswift/components'
 
-strict(process.env.MAKESWIFT_SITE_API_KEY, 'MAKESWIFT_SITE_API_KEY is required');
-
-const handler = MakeswiftApiHandler(process.env.MAKESWIFT_SITE_API_KEY!, { runtime });
-
-export { handler as GET, handler as POST, handler as OPTIONS };
+const handler = MakeswiftApiHandler(process.env.MAKESWIFT_SITE_API_KEY as string, { runtime })
+export { handler as GET, handler as POST, handler as OPTIONS }
