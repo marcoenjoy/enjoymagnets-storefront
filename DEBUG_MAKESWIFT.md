@@ -35,3 +35,13 @@ Leggi questa situazione e il codice in `app/api/makeswift/[[...makeswift]]/route
 
 - Comando: \`curl -i http://127.0.0.1:3001/api/makeswift/version\`
 - Risultato: HTTP 404 con pagina standard Next.js "This page could not be found."
+
+## 2025-12-09 – /api/makeswift e /api/makeswift/version ancora 404
+
+- Contesto: Makeswift in dashboard mostra ancora "Not connected".
+- Test eseguiti sul server:
+
+  - `curl -i http://127.0.0.1:3001/api/makeswift`
+  - `curl -i http://127.0.0.1:3001/api/makeswift/version`
+
+- Risultato: entrambe le route restituiscono la pagina 404 generica di Next.js (app router `_not-found`), come da output incollato nella chat.
