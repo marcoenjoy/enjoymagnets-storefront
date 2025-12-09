@@ -45,3 +45,19 @@ Leggi questa situazione e il codice in `app/api/makeswift/[[...makeswift]]/route
   - `curl -i http://127.0.0.1:3001/api/makeswift/version`
 
 - Risultato: entrambe le route restituiscono la pagina 404 generica di Next.js (app router `_not-found`), come da output incollato nella chat.
+
+## 2025-12-09 – Pages visibili ma non editabili in Makeswift
+
+- Host configurato in Makeswift: https://shop.enjoymagnets.com/
+- curl -i http://127.0.0.1:3001/api/makeswift/version → 200 OK
+  - body: {"ok":true,"route":"makeswift-version (pages/api)", "timestamp": "..."}
+- curl -i http://127.0.0.1:3001/api/makeswift → 404 NOT FOUND
+  - Next.js prova a risolvere il path come "(site)/[path api/makeswift oc]" (vedi HTML di errore).
+- In Makeswift UI:
+  - le pagine del sito vengono caricate,
+  - ma ovunque compare "This page is not editable" (anche su pagine nuove).
+- Obiettivo:
+  - usare correttamente l’handler App Router per /api/makeswift,
+  - far sì che Makeswift riconosca shop.enjoymagnets.com come host editabile
+  - e che le pagine diventino effettivamente editabili.
+
