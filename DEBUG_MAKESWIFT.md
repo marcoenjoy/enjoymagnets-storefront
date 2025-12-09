@@ -27,3 +27,11 @@ Leggi questa situazione e il codice in `app/api/makeswift/[[...makeswift]]/route
 1. Far rispondere `/api/makeswift` con 2xx quando chiamato dal webhook Makeswift.
 2. Allinearti alla configurazione ufficiale Makeswift per Next.js 14 App Router.
 3. Mantenere compatibile il health check `/api/makeswift/version`.
+
+## 2025-12-09 – Step 2: test API Makeswift dal server
+
+- Comando: \`curl -i http://127.0.0.1:3001/api/makeswift\`
+- Risultato: HTTP 404 con pagina standard Next.js "This page could not be found."
+
+- Comando: \`curl -i http://127.0.0.1:3001/api/makeswift/version\`
+- Risultato: HTTP 404 con pagina standard Next.js "This page could not be found."
